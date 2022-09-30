@@ -10,38 +10,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class InstituteService {
     @Autowired
-    private InstituteRepository repository;
+    private InstituteRepository instituterepository;
 
    
 
     public Institute saveInstitute(Institute institute) {
-        return repository.save(institute);
+        return instituterepository.save(institute);
     }
     
     public Institute getInstituteId(int instituteId){
-        return repository.findByInstituteId(instituteId);
+        return instituterepository.findByInstituteId(instituteId);
     }
 
 
-    public Institute getInstitutename(String institutename) {
-        return repository.findByInstitutename(institutename);
-    }
-    
-    public Institute deleteInstitute(Institute institutename) {
-        return repository.deleteByInstitutename(institutename);
+       
+    public Institute deleteInstitute(Institute instituteId) {
+        return instituterepository.deleteByInstituteId(instituteId);
         
     }
     
 
     public Institute updateInstitute(Institute institute) {
-        Institute existingInstitute = repository.findByInstitutename(institute.getInstitutename());
+        Institute existingInstitute = instituterepository.findByInstituteId(institute.getInstituteId());
         existingInstitute.setInstituteId(institute.getInstituteId());
         existingInstitute.setInstitutename(institute.getInstitutename());
         existingInstitute.setInstitutedescription(institute.getInstitutedescription());
         existingInstitute.setInstituteaddress(institute.getInstituteaddress());
         existingInstitute.setMobilenumber(institute.getMobilenumber());
         existingInstitute.setEmail(institute.getEmail());
-        return repository.save(existingInstitute);
+        return instituterepository.save(existingInstitute);
     }
 
 

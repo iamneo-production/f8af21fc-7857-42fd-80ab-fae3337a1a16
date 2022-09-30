@@ -9,38 +9,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StudentService {
+    
     @Autowired
-    private StudentRepository repository;
+    private StudentRepository studentrepository;
 
    
 
     public Student saveStudent(Student student) {
-        return repository.save(student);
+        return studentrepository.save(student);
     }
     
     public Student getStudentId(int studentId){
-        return repository.findByStudentId(studentId);
+        return studentrepository.findByStudentId(studentId);
     }
 
 
-    public Student getStudentname(String studentname) {
-        return repository.findByStudentname(studentname);
-    }
     
-    public Student deleteStudent(Student studentname) {
-        return repository.deleteByStudentname(studentname);
+    public Student deleteStudent(Student studentId) {
+        return studentrepository.deleteByStudentId(studentId);
         
     }
     
 
     public Student updateStudent(Student student) {
-        Student existingStudent = repository.findByStudentname(student.getStudentname());
+        Student existingStudent = studentrepository.findByStudentId(student.getStudentId());
         existingStudent.setStudentId(student.getStudentId());
         existingStudent.setStudentname(student.getStudentname());
         existingStudent.setStudentDOB(student.getStudentDOB());
         existingStudent.setAddress(student.getAddress());
         existingStudent.setMobilenumber(student.getMobilenumber());
-        return repository.save(existingStudent);
+        return studentrepository.save(existingStudent);
     }
 
 

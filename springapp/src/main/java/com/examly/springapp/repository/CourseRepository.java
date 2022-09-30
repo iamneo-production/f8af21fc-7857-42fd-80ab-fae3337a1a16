@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CourseRepository extends JpaRepository<Course, String> {
     
     
-    Course deleteByCoursename(Course coursename);
+    Course deleteByCourseId(Course courseId);
     Course findByCourseId(int courseId);
-    Course findByCoursename(String coursename);
     Course save(Course course);
    
 
