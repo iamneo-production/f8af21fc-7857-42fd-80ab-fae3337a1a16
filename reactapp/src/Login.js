@@ -8,9 +8,9 @@ import Signup from './Signup';
     const navigateSignup=()=>{
       navigate('/Signup');
     }
-  
+ 
   const [auth,setAuth]=useState(false);
-  
+ 
 
   const [data,setData]=useState({
     email :'',
@@ -25,7 +25,7 @@ import Signup from './Signup';
   }
   const submitHandler = e => {
     e.preventDefault()
-    
+   
   }
   return (
     <div>
@@ -35,27 +35,27 @@ import Signup from './Signup';
         <h1> LOGIN </h1>
         <form autoComplete="off" onSubmit={submitHandler}>
         <label>email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label><input type="text" name="email" value={email} onChange={changeHandler}/> <br />
-        <label>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label> <input type="password" name="Password" value ={Password} onChange={changeHandler}/> <br /> 
+        <label>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label> <input type="password" name="Password" value ={Password} onChange={changeHandler}/> <br />
         <button onClick={()=>setAuth(true)}>Login</button><h4>New Admin/User?</h4><button onClick={navigateSignup}>Signup</button>
-        
+       
           <Routes>
         <Route path="/Signup" exact element={<Signup/>} />
         </Routes>
-          
+         
         </form>
       </center>
-      
-        
-    
+     
+       
+   
     </div>
   );
 }
-  
+ 
 function Login() {
   return (
-    
+   
       <Root />
-    
+   
   );
 }
 

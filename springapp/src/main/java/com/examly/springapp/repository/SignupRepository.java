@@ -7,7 +7,7 @@ public interface SignupRepository extends JpaRepository<Signup, String> {
     
     
     
-    Signup findByUserId(String userId);
+    Signup findByUserId(int userId);
     Signup save(Signup signup);
    
 
